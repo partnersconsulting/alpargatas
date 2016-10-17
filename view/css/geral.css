@@ -1,0 +1,131 @@
+.container {
+    height: 100%;
+}
+
+.alpargatas-content {
+    height: 100%;
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
+        padding: 0;
+        position: relative;
+    }
+}
+
+html {
+    background-image: linear-gradient(to bottom, #2da9b1 0, #178299 50%, #1a4c7d 100%);
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: inherit;
+    position: relative;
+}
+
+.panel-body {
+    background-image: linear-gradient(to bottom, #dff2f3 0, #dcecf0 50%, #dde4eb 100%);
+    height: 100%;
+}
+
+.panel-default {
+    height: 90%;
+}
+
+.panel-default>.panel-heading {
+    background-color: #fff;
+    background-image: inherit;
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+    border-top: 4px solid #009de0;
+    color: #666666;
+    text-align: center;
+    padding: 13px;
+}
+
+.panel-default>.panel-heading a {
+    color: #666;
+}
+
+.panel-default>.panel-heading>.icon {
+    float: left;
+}
+
+.panel-default>.panel-heading>.icon-home {
+    margin-right: 10px;
+}
+
+
+/* ************** Animate ************** */
+
+.alpargatas-content.ng-enter {
+    animation: slideInRight 0.2s both ease-in;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOutLeft {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.alpargatas-content.ng-leave {
+    animation: slideOutLeft 0.1s both ease-in;
+}
+
+
+/* ************** TILES ************** */
+
+.tiles {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    /*  justify-content: space-between; */
+}
+
+.tile {
+    width: 190px;
+    height: 230px;
+    border: 1px solid #dddddd;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    padding: 15px;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.tile i {
+    color: #666666;
+    opacity: .3;
+    display: block;
+}
+
+.tile .title {
+    color: #007cc0;
+    margin-top: 40px;
+    font-size: 1.1em;
+    display: block;
+}
+
+.tile .text {
+    display: block;
+    color: #000;
+    font-size: .9em;
+    margin-top: 20px;
+    line-height: 1.3em;
+}
+
+
+/* ************** xxx ************** */
