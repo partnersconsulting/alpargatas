@@ -6,12 +6,15 @@ angular.module('App.directives', [])
 
         ddo.scope = {
             title: '@title',
-            linkback: '@linkback'
+            linkback: '@linkback',
+            type: '@type'
         }
 
         ddo.transclude = true;
 
-        ddo.templateUrl = 'view/directives/panel.html';
+        var r = '?n=' + Math.random();
+
+        ddo.templateUrl = 'view/directives/panel.html' + r;
         return ddo;
     })
     /*

@@ -18,5 +18,12 @@ angular.module('App', ["App.controllers", "App.services", "App.directives", "App
                 templateUrl: 'view/pedidos.html',
                 controller: 'PedidosController'
             })
+            .when('/pedido1', {
+                templateUrl: 'view/pedido1.html',
+                controller: 'PedidosController'
+            })
             .otherwise({ redirectTo: 'home' });
+
+       
+        
     });

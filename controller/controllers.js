@@ -1,5 +1,73 @@
 angular.module("App.controllers", [])
-    .controller("HomeController", ["$scope", function($scope) {
+    .controller("MainController", function($scope, $rootScope, $filter) {
+
+
+        $rootScope.products = [{
+            code: '400001',
+            name: 'Chaveiro',
+            cotaLivre: true,
+            zona: '190000',
+            gnv: '110000',
+            grv: '20000',
+            opcoes: [{ tamanho: '001', cor: '1001' }]
+        }, {
+            code: '400002',
+            name: 'Havaianas Retro',
+            cotaLivre: false,
+            zona: '99000',
+            gnv: '19000',
+            grv: '10000',
+            opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
+        }, {
+            code: '400003',
+            name: 'Havaianas tradicional',
+            cotaLivre: true,
+            zona: '80000',
+            gnv: '50000',
+            grv: '5000',
+            opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }, { tamanho: '334', cor: '1003' }, { tamanho: '356', cor: '1003' }, { tamanho: '378', cor: '1003' }, { tamanho: '390', cor: '1003' }, { tamanho: '412', cor: '1003' }, { tamanho: '434', cor: '1003' }]
+        }, {
+            code: '400004',
+            name: 'Havaianas Color',
+            cotaLivre: false,
+            zona: '800000',
+            gnv: '50000',
+            grv: '3000',
+            opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
+        }, {
+            code: '700005',
+            name: 'Havaianas Simpsons',
+            cotaLivre: true,
+            zona: '1800000',
+            gnv: '770000',
+            grv: '33000',
+            opcoes: [{ tamanho: 'I21', cor: '1002' }, { tamanho: 'F33', cor: '1002' }]
+        }];
+
+
+        $rootScope.selectProduct = function(code) {
+            $rootScope.selectedProduct = $filter('filter')($rootScope.products, { code: code })[0];
+
+            $rootScope.cores = {};
+            angular.forEach($rootScope.selectedProduct.opcoes, function(opcao, i) {
+                $rootScope.cores[opcao.cor] = opcao.cor;
+            });
+
+             $rootScope.tamanhos = {};
+            angular.forEach($rootScope.selectedProduct.opcoes, function(opcao, i) {
+                $rootScope.tamanhos[opcao.tamanho] = opcao.tamanho;
+            });
+/*
+            for (cor in $rootScope.cores) {
+                console.log('cor: ' + cor);
+            }*/
+
+        }
+
+        $rootScope.selectProduct($rootScope.products[0].code);
+
+    })
+    .controller("HomeController", function($scope, $rootScope) {
         $scope.links = [{
             title: "Cadastros",
             icon: "fa-user",
@@ -11,13 +79,14 @@ angular.module("App.controllers", [])
             text: "Consultar Pedidos Alpargatas",
             link: "/consultas"
         }, {
-            title: "Gerenciar Pedidos",
+            title: "Criar Pedidos",
             icon: "fa-pencil-square-o",
-            text: "Gerenciador de Pedidos Alpargatas",
-            link: "/pedidos"
+            text: "Gerar novo Pedido Alpargatas",
+            link: "/pedido1"
         }];
-    }])
-    .controller("CadastrosController", ["$scope", function($scope) {
+
+    })
+    .controller("CadastrosController", function($scope) {
         $scope.links = [{
             title: "Estrutura comercial",
             icon: "fa-building-o",
@@ -49,36 +118,41 @@ angular.module("App.controllers", [])
             text: "Gerenciador de Pedidos Alpargatas",
             link: "/pedidos"
         }];
-    }])
-    .controller("ConsultasController", ["$scope", function($scope) {
-    	$scope.links = [{
+    })
+    .controller("ConsultasController", function($scope) {
+        $scope.links = [{
             title: "Consulta 1",
             icon: "fa-search",
             text: "Consultar Pedidos",
             link: "/consultas"
-        },{
+        }, {
             title: "Consulta 2",
             icon: "fa-search",
             text: "Consultar Pedidos Alpargatas",
             link: "/consultas"
         }];
 
-    }])
-    .controller("PedidosController", ["$scope", function($scope) {
+    })
+    .controller("PedidosController", function($scope) {
         $scope.links = [{
-            title: "Cadastro sem limite",
+            title: "Pedido sem limite",
             icon: "fa-plus-circle",
             text: "Cadastro de pedido Alpargatas",
-            link: "/cadastros"
+            link: "/pedido1"
         }, {
-            title: "Cadastro com limite de material",
+            title: "Pedido com limite de material",
             icon: "fa-plus-circle",
             text: "Cadastro de pedido Alpargatas",
-            link: "/cadastros"
+            link: "/pedido2"
         }, {
-            title: "Cadastro com limite de tipo",
+            title: "Pedido com limite de tipo",
             icon: "fa-plus-circle",
             text: "Cadastro de pedido Alpargatas",
-            link: "/cadastros"
+            link: "/pedido3"
         }];
-    }]);
+
+
+        $scope.materiais = ["d1", "d2", "d3"];
+
+
+    });
