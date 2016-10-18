@@ -52,6 +52,8 @@ angular.module("App.controllers", [])
         $rootScope.selectProduct = function(code) {
             $rootScope.selectedProduct = $filter('filter')($rootScope.products, { code: code })[0];
 
+            $rootScope.clear();
+            
             $rootScope.cores = {};
             angular.forEach($rootScope.selectedProduct.opcoes, function(opcao, i) {
                 $rootScope.cores[opcao.cor] = opcao.cor;
@@ -62,8 +64,6 @@ angular.module("App.controllers", [])
                 $rootScope.tamanhos[opcao.tamanho] = opcao.tamanho;
             });
 
-            $rootScope.itemPedido = {};
-            $rootScope.itemPedido.code = $rootScope.selectedProduct.code;
 
             /*for (cor in $rootScope.cores) {
                 for (tamanho in $rootScope.tamanhos) {
@@ -98,9 +98,17 @@ angular.module("App.controllers", [])
             }
         }
 
-        $rootScope.getTotal = function() {
+        $rootScope.clear = function() {
+            $rootScope.itemPedido = {};
+            $rootScope.itemPedido.code = $rootScope.selectedProduct.code;
+            $rootScope.totalTamanhos = 0;
+        }
+
+        $rootScope.addItem = function() {
             $rootScope.itemPedido.total = $rootScope.totalTamanhos;
             $rootScope.itensPedido.push($rootScope.itemPedido);
+
+            $rootScope.clear();
         }
 
 
@@ -132,32 +140,32 @@ angular.module("App.controllers", [])
             title: "Estrutura comercial",
             icon: "fa-building-o",
             text: "Gerenciador de Cadastros Alpargatas",
-            link: "/cadastros"
+            link: "/cadastro1"
         }, {
             title: "Clientes",
             icon: "fa-users",
             text: "Consultar Pedidos Alpargatas",
-            link: "/consultas"
+            link: "/cadastro1"
         }, {
             title: "Produtos",
             icon: "fa-laptop",
             text: "Gerenciador de Pedidos Alpargatas",
-            link: "/pedidos"
+            link: "/cadastro1"
         }, {
             title: "Plano de vendas",
             icon: "fa-gift",
             text: "Gerenciador de Pedidos Alpargatas",
-            link: "/pedidos"
+            link: "/cadastro1"
         }, {
             title: "Cotas de vendas",
             icon: "fa-pie-chart",
             text: "Gerenciador de Pedidos Alpargatas",
-            link: "/pedidos"
+            link: "/cadastro1"
         }, {
             title: "Disponibilidade",
             icon: "fa-th",
             text: "Gerenciador de Pedidos Alpargatas",
-            link: "/pedidos"
+            link: "/cadastro1"
         }];
     })
     .controller("ConsultasController", function($scope) {

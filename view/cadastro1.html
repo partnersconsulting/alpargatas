@@ -1,0 +1,28 @@
+<panel title="Cadastro de Produtos" linkback="#/cadastros">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>cotaLivre</th>
+                <th>zona</th>
+                <th>gnv</th>
+                <th>grv</th>
+                <!-- <th>opcoes</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="product in products">
+                <th scope="row">{{product.code}}</th>
+                <td>{{product.name}}</td>
+                <td>{{product.cotaLivre}}</td>
+                <td>{{product.zona}}</td>
+                <td>{{product.gnv}}</td>
+                <td>{{product.grv}}</td>
+                <!-- <td>{{product.opcoes}}</td> -->
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn btn-success" ><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
+</panel>
