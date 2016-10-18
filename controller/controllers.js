@@ -9,7 +9,7 @@ angular.module("App.controllers", [])
             zona: '190000',
             gnv: '110000',
             grv: '20000',
-            opcoes: [{ tamanho: '001', cor: '1001' }]
+            opcoes: [{ tamanho: '001', cor: '1001', value: 0 }]
         }, {
             code: '400002',
             name: 'Havaianas Retro',
@@ -44,6 +44,10 @@ angular.module("App.controllers", [])
             opcoes: [{ tamanho: 'I21', cor: '1002' }, { tamanho: 'F33', cor: '1002' }]
         }];
 
+        $rootScope.itemPedido = {};
+        $rootScope.totalTamanhos = 0;
+        $rootScope.itensPedido = [];
+
 
         $rootScope.selectProduct = function(code) {
             $rootScope.selectedProduct = $filter('filter')($rootScope.products, { code: code })[0];
@@ -53,16 +57,53 @@ angular.module("App.controllers", [])
                 $rootScope.cores[opcao.cor] = opcao.cor;
             });
 
-             $rootScope.tamanhos = {};
+            $rootScope.tamanhos = {};
             angular.forEach($rootScope.selectedProduct.opcoes, function(opcao, i) {
                 $rootScope.tamanhos[opcao.tamanho] = opcao.tamanho;
             });
-/*
-            for (cor in $rootScope.cores) {
-                console.log('cor: ' + cor);
+
+            $rootScope.itemPedido = {};
+            $rootScope.itemPedido.code = $rootScope.selectedProduct.code;
+
+            /*for (cor in $rootScope.cores) {
+                for (tamanho in $rootScope.tamanhos) {
+                    var itemColor = $rootScope.itemPedido[cor] = {};
+                    var itemTamanho = itemColor[tamanho] = {};
+                }
             }*/
 
+
+
         }
+
+        $rootScope.onChange = function() {
+
+            //console.log($rootScope.itemPedido['1002']['434']);
+
+            $rootScope.totalTamanhos = 0;
+            for (itemColor in $rootScope.itemPedido) {
+                if (itemColor != 'code') {
+
+
+                    for (itemTamanho in $rootScope.itemPedido[itemColor]) {
+                        $rootScope.totalTamanhos += $rootScope.itemPedido[itemColor][itemTamanho].value;
+                        //console.log('>> ' + $rootScope.itemPedido[itemColor][itemTamanho].value);
+                    }
+
+                }
+                /*for (itemTamanho in itemColor) {
+
+                console.log('itemTamanho: ' + itemTamanho +' : '+ itemTamanho.value);
+                }*/
+            }
+        }
+
+        $rootScope.getTotal = function() {
+            $rootScope.itemPedido.total = $rootScope.totalTamanhos;
+            $rootScope.itensPedido.push($rootScope.itemPedido);
+        }
+
+
 
         $rootScope.selectProduct($rootScope.products[2].code);
 

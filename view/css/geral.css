@@ -268,8 +268,32 @@ body {
 }
 
 .actions {
-        padding: 0 20px;
+    padding: 0 20px;
     text-align: right;
+}
+
+
+/* ************** LISTA PEDIDO ************** */
+
+.pedidos {
+
+    padding: 20px;
+}
+.pedidos h3{
+    background-color: #ccc;
+    padding: 15px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.pedidos .pedidoItem {
+    display: block;
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 10px;
+}
+.pedidos .pedidoItem:nth-child(odd) {
+    background-color: #fff;
 }
 
 
