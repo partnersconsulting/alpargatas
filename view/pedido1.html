@@ -58,10 +58,12 @@
             <span><input class="input-sizes" disabled type="text" value="{{cor}}"></span>
             <span ng-repeat="tamanho in tamanhos"><input class="input-sizes" type="number"></span>
         </div>
-
         <div class="product-footer">
-            <span>Cor</span>
-            <span ng-repeat="tamanho in tamanhos">Tam: {{tamanho}}</span>
+            <span>Total</span>
+            <span ng-repeat="tamanho in tamanhos">0</span>
         </div>
+    </div>
+    <div class="actions">
+        <button type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
     </div>
 </panel>

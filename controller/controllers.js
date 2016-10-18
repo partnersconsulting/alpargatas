@@ -64,7 +64,7 @@ angular.module("App.controllers", [])
 
         }
 
-        $rootScope.selectProduct($rootScope.products[0].code);
+        $rootScope.selectProduct($rootScope.products[2].code);
 
     })
     .controller("HomeController", function($scope, $rootScope) {
