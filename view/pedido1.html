@@ -70,10 +70,18 @@
         <h3>Pedido:</h3>
         <span ng-repeat="item in itensPedido" class="pedidoItem">
         <span>Cod: {{item.code}}</span>
+        <span>
+        	
+			<span class="desc" ng-repeat="(key, value) in item" ng-if="key != 'code' && key != 'total'">Cor: {{key}}
+
+				<span class="tamanhos" ng-repeat="(key2, value2) in value">( tam:{{key2}}: {{value2.value}} )</span>
+			</span>
+
+
+        </span>
         <span class="total">
         	Total: {{item.total}}
         </span>
         </span>
     </div>
-    <!-- {{itemPedido}} -->
 </panel>
