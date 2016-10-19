@@ -88,6 +88,8 @@
             </div>
         </div>
     </form>
+
+
     <!-- <div class="table-products" ng-show="selectedCLIENTE"> -->
     <div class="table-products">
         <div class="product-header">
@@ -109,7 +111,7 @@
         </div>
     </div>
     <div class="actions">
-        <button type="button" class="btn btn-success" ng-click="addItem()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
+        <button type="button" class="btn btn-primary" ng-click="addItem()"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar</button>
     </div>
     <div class="pedidos" ng-show="itensPedido.length">
         <h3>Itens Carrinho:</h3>
@@ -119,6 +121,7 @@
                     <th>Material</th>
                     <th>Nome</th>
                     <th>Cor</th>
+                    <th>Grade</th>
                     <th>Tamanho</th>
                     <th>Qnt</th>
                     <th>Data</th>
@@ -128,8 +131,15 @@
             </thead>
             <tfoot>
                 <tr>
-                    <td>001</td>
-
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>R$ {{totalValorPedido}}</td>
                 </tr>
             </tfoot>
             <tbody>
@@ -137,6 +147,7 @@
                     <td>{{pedido.produto.code}}</td>
                     <td>{{pedido.produto.name}}</td>
                     <td>{{pedido.produto.name}}</td>
+                    <td>{{pedido.grade}}</td>
                     <td>{{pedido.tamanho}}</td>
                     <td>{{pedido.value}}</td>
                     <td>{{pedido.produto.data}}</td>
@@ -166,9 +177,9 @@
         	        </span>
         </span> -->
     </div>
-    {{itemPedido}}
-    <div class="actions">
-        <button type="button" class="btn btn-success" ng-click="addItem()"><i class="fa fa-plus" aria-hidden="true"></i> Cotação</button>
-        <button type="button" class="btn btn-success" ng-click="addItem()"><i class="fa fa-plus" aria-hidden="true"></i> Pedido</button>
+
+    <div class="actions" ng-show="itensPedido.length">
+        <button type="button" class="btn btn-info" ng-click="addItem()"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Cotação</button>
+        <button type="button" class="btn btn-success" ng-click="addItem()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedido</button>
     </div>
 </panel>

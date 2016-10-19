@@ -310,6 +310,9 @@ body {
 
 .pedidos {
     padding: 20px;
+    overflow-y: scroll;
+    height: 310px;
+    display: block;
 }
 
 .pedidos h3 {

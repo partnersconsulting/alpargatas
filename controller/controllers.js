@@ -86,15 +86,39 @@ angular.module("App.controllers", [])
             cotaLivre: true,
             zona: '1800000',
             gnv: '770000',
+            tipo: 'grade',
             grv: '33000',
             data: '10/12/2016',
             valor: 25.0,
-            opcoes: [{ tamanho: 'I21', cor: '1002' }, { tamanho: 'F33', cor: '1002' }]
+            opcoes: [{
+                tamanho: 'I21',
+                cor: '1002',
+                grade: [
+                    { tamanho: "212", value: 1 },
+                    { tamanho: "234", value: 2 },
+                    { tamanho: "256", value: 3 },
+                    { tamanho: "278", value: 3 },
+                    { tamanho: "290", value: 2 },
+                    { tamanho: "312", value: 1 }
+                ]
+            }, {
+                tamanho: 'F33',
+                cor: '1002',
+                grade: [
+                    { tamanho: "334", value: 1 },
+                    { tamanho: "356", value: 2 },
+                    { tamanho: "378", value: 3 },
+                    { tamanho: "390", value: 3 },
+                    { tamanho: "412", value: 2 },
+                    { tamanho: "434", value: 1 }
+                ]
+            }]
         }];
 
         $rootScope.itemPedido = {};
         $rootScope.totalTamanhos = 0;
         $rootScope.itensPedido = [];
+        $rootScope.totalValorPedido = 0;
 
 
         $rootScope.selectProduct = function(code) {
@@ -161,19 +185,50 @@ angular.module("App.controllers", [])
                     var itemLista = {};
                     itemLista.produto = $rootScope.selectedProduct;
                     itemLista.tamanho = itemTamanho;
+                    itemLista.grade = '-';
                     itemLista.value = $rootScope.itemPedido[itemColor][itemTamanho].value;
 
-                    if (itemLista.value > 0) {
-                        $rootScope.itensPedido.push(itemLista);
 
+
+                    if ($rootScope.selectedProduct.tipo == 'grade') {
+
+
+                        for (var i = $rootScope.selectedProduct.opcoes.length - 1; i >= 0; i--) {
+
+
+                            if ($rootScope.selectedProduct.opcoes[i].tamanho == itemTamanho) {
+                                var grade = $rootScope.selectedProduct.opcoes[i].grade
+                                for (var j = grade.length - 1; j >= 0; j--) {
+
+                                    var itemGrade = {};
+                                    itemGrade.produto = $rootScope.selectedProduct;
+                                    itemGrade.tamanho = grade[j].tamanho;
+                                    itemGrade.grade = itemTamanho;
+                                    itemGrade.value = itemLista.value * grade[j].value;
+
+
+                                    $rootScope.itensPedido.push(itemGrade);
+
+                                    $rootScope.totalValorPedido += (itemGrade.value * itemLista.produto.valor);
+                                }
+
+                            }
+
+                        }
+
+
+                    } else {
+
+                        if (itemLista.value > 0) {
+                            $rootScope.totalValorPedido += (itemLista.value * itemLista.produto.valor);
+                            $rootScope.itensPedido.push(itemLista);
+
+                        }
                     }
-
 
                 }
 
             }
-
-
 
             // $rootScope.itemPedido.produto = $rootScope.selectedProduct;
             //$rootScope.itensPedido.push($rootScope.itemPedido);
