@@ -20,9 +20,11 @@
 
 html {
     /* background-image: linear-gradient(to bottom, #2da9b1 0, #178299 50%, #1a4c7d 100%); */
-    background-image: url(../images/image001.jpg);
+    /* background-image: url(../images/image001.jpg); */
+    /* background-image: url(../images/fundo-havaians.png); */
     height: 100%;
     overflow: hidden;
+     background-image: url(../images/bg2.jpg); 
 }
 
 body {
@@ -31,12 +33,11 @@ body {
 }
 
 .panel-body {
-        background-color: #d0cece;
+    background-image: linear-gradient(to bottom, #dff2f3 0, #dcecf0 50%, #dde4eb 100%);
     height: 100%;
 }
 
 .panel-body-form {
-
     padding: 0;
 }
 
