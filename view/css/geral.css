@@ -31,12 +31,12 @@ body {
 }
 
 .panel-body {
-    background-image: linear-gradient(to bottom, #dff2f3 0, #dcecf0 50%, #dde4eb 100%);
+        background-color: #eee;
     height: 100%;
 }
 
 .panel-body-form {
-    background-color: #fff;
+
     padding: 0;
 }
 
@@ -206,7 +206,9 @@ body {
 /* ************** xxx ************** */
 
 .table-products {
+    margin-top: 10px;
     padding: 20px;
+    background-color: #fff;
 }
 
 .table-products .product {
@@ -227,7 +229,7 @@ body {
 }
 
 .table-products .product:nth-child(odd) {
-    background-color: #c5dfe8;
+    background-color: #e8e8e8;
 }
 
 .table-products .product-header span,
@@ -275,6 +277,15 @@ body {
 .actions {
     padding: 0 20px;
     text-align: right;
+}
+
+.table-products .product .show-color {
+    max-width: 80px;
+    height: 30px;
+    padding: 5px 10px;
+    border: 1px solid #666;
+    display: block;
+    margin: 0 auto;
 }
 
 

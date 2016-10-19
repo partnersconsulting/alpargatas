@@ -55,8 +55,12 @@
         </div>
         <!--  <div class="product" ng-repeat="opcao in selectedProduct.opcoes"> -->
         <div class="product" ng-repeat="cor in cores">
-            <span><input class="input-sizes" disabled type="text" value="{{cor}}"></span>
-            <span ng-repeat="tamanho in tamanhos"><input class="input-sizes" type="number" min="0" max="99999" maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor][tamanho].value"></span>
+            <span>
+            	<span style="background-color: #{{cor}}" class="show-color">{{cor}}</span>
+            </span>
+            <span ng-repeat="tamanho in tamanhos">
+            	<input class="input-sizes" type="number" min="0" max="99999" maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor][tamanho].value">
+            </span>
         </div>
         <div class="product-footer">
             <span>Total: {{totalTamanhos}}</span>
@@ -70,14 +74,8 @@
         <h3>Pedido:</h3>
         <span ng-repeat="item in itensPedido" class="pedidoItem">
         <span>Cod: {{item.code}}</span>
-        <span>
-        	
-			<span class="desc" ng-repeat="(key, value) in item" ng-if="key != 'code' && key != 'total'">Cor: {{key}}
-
+        <span class="desc" ng-repeat="(key, value) in item" ng-if="key != 'code' && key != 'total'">Cor: {{key}}
 				<span class="tamanhos" ng-repeat="(key2, value2) in value">( tam:{{key2}}: {{value2.value}} )</span>
-			</span>
-
-
         </span>
         <span class="total">
         	Total: {{item.total}}

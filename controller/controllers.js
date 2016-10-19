@@ -171,13 +171,13 @@ angular.module("App.controllers", [])
                 }
             }
 
-
-
             $scope.newProduct.opcoes = opcoes;
             $rootScope.products.push($scope.newProduct);
             $scope.newProduct = {};
+            $scope.tamanhosProdutos = [];
+            $scope.coresProdutos = [];
 
-            $scope.isCollapsed = false;
+            $scope.isCollapsed = !$scope.isCollapsed;
         }
 
         $scope.links = [{
