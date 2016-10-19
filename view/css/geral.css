@@ -24,7 +24,8 @@ html {
     /* background-image: url(../images/fundo-havaians.png); */
     height: 100%;
     overflow: hidden;
-     background-image: url(../images/bg2.jpg); 
+    background-image: url(../images/bg4.jpg);
+    background-size: cover;
 }
 
 body {
