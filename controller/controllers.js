@@ -47,7 +47,7 @@ angular.module("App.controllers", [])
             zona: '190000',
             gnv: '110000',
             grv: '20000',
-            data: '10/12/2016',
+            data: '20/11/2016',
             valor: 10.5,
             opcoes: [{ tamanho: '001', cor: '1001', value: 0 }]
         }, {
@@ -57,7 +57,7 @@ angular.module("App.controllers", [])
             zona: '99000',
             gnv: '19000',
             grv: '10000',
-            data: '10/12/2016',
+            data: '10/06/2016',
             valor: 18.5,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
         }, {
@@ -67,7 +67,7 @@ angular.module("App.controllers", [])
             zona: '80000',
             gnv: '50000',
             grv: '5000',
-            data: '10/12/2016',
+            data: '5/12/2016',
             valor: 16.5,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }, { tamanho: '334', cor: '1003' }, { tamanho: '356', cor: '1003' }, { tamanho: '378', cor: '1003' }, { tamanho: '390', cor: '1003' }, { tamanho: '412', cor: '1003' }, { tamanho: '434', cor: '1003' }]
         }, {
@@ -88,7 +88,7 @@ angular.module("App.controllers", [])
             gnv: '770000',
             tipo: 'grade',
             grv: '33000',
-            data: '10/12/2016',
+            data: '10/01/2017',
             valor: 25.0,
             opcoes: [{
                 tamanho: 'I21',
