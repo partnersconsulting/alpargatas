@@ -15,7 +15,9 @@
             <tr ng-repeat="product in products">
                 <th scope="row">{{product.code}}</th>
                 <td>{{product.name}}</td>
-                <td>{{product.cotaLivre}}</td>
+                <td>
+                    <i class="fa" ng-class="{'fa-check-circle':product.cotaLivre, 'fa-times': !product.cotaLivre}"></i>
+                </td>
                 <td>{{product.zona}}</td>
                 <td>{{product.gnv}}</td>
                 <td>{{product.grv}}</td>
@@ -23,6 +25,123 @@
             </tr>
         </tbody>
     </table>
-
-    <button type="button" class="btn btn-success" ><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
+    <button type="button" class="btn btn-success" ng-show="isCollapsed" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-plus" aria-hidden="true"></i> Adicionar Novo</button>
+    <div uib-collapse="isCollapsed" class="cadastro-form">
+        <form action="">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="exampleInputName2">Codigo</label>
+                        <input type="number" class="form-control" ng-model="newProduct.code">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="exampleInputName2">Nome</label>
+                        <input type="text" class="form-control" ng-model="newProduct.name">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="exampleInputName2">Cota Livre</label>
+                        <input type="checkbox" class="form-control" ng-model="newProduct.cotaLivre">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="exampleInputName2">Zona</label>
+                        <input type="number" class="form-control" ng-model="newProduct.zona">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="exampleInputName2">GNV</label>
+                        <input type="number" class="form-control" ng-model="newProduct.gnv">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label for="exampleInputName2">GRV</label>
+                        <input type="number" class="form-control" ng-model="newProduct.grv">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="well">
+                        <h4>Cores</h4>
+                        <div class="row">
+                            <table class="table table-hover table-sub">
+                                <thead>
+                                    <tr>
+                                        <th>Cor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="cor in coresProdutos">
+                                        <td style="background-color: #{{cor.code}}">{{cor.code}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row sub-panel">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="exampleInputName2">Hex</label>
+                                    <input style="background-color: #{{newColorProduct.code}}" type="text" maxlength="6" class="form-control" ng-model="newColorProduct.code">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleInputName2">&nbsp;</label>
+                                    <button type="button" class="btn btn-success btn-block" ng-click="salvarCorProduto()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="well">
+                        <h4>Tamanhos</h4>
+                        <div class="row">
+                            <table class="table table-hover table-sub">
+                                <thead>
+                                    <tr>
+                                        <th>Tamanho</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in tamanhosProdutos">
+                                        <td>{{item.tamanho}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row sub-panel">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <label for="exampleInputName2">Codigo tamanho</label>
+                                    <input type="number" class="form-control" ng-model="newSizeProduct.tamanho">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="exampleInputName2">&nbsp;</label>
+                                    <button type="button" class="btn btn-success btn-block" ng-click="salvarTamanhoProduto()"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                </div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-success btn-block" ng-click="salvarProduto()"><i class="fa fa-plus" aria-hidden="true"></i> Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    
 </panel>

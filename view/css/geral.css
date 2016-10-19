@@ -19,7 +19,8 @@
 }
 
 html {
-    background-image: linear-gradient(to bottom, #2da9b1 0, #178299 50%, #1a4c7d 100%);
+    /* background-image: linear-gradient(to bottom, #2da9b1 0, #178299 50%, #1a4c7d 100%); */
+    background-image: url(../images/image001.jpg);
     height: 100%;
     overflow: hidden;
 }
@@ -318,6 +319,32 @@ body {
 
 .pedidos .pedidoItem .tamanhos {
     padding: 0 10px;
+}
+
+
+/* ************** CADASTRO ************** */
+
+.cadastro-form {
+    padding: 10px;
+    background-color: #fff;
+}
+
+.table-sub {
+    max-width: calc(100% - 50px);
+    margin: 10px auto 0;
+}
+
+.sub-panel {
+    background-color: #ddd;
+    margin: 20px 10px 0px;
+}
+
+.radio-inline {
+    display: block;
+}
+
+.radio-inline .item-radio {
+    line-height: 20px;
 }
 
 

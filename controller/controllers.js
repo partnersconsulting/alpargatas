@@ -53,7 +53,7 @@ angular.module("App.controllers", [])
             $rootScope.selectedProduct = $filter('filter')($rootScope.products, { code: code })[0];
 
             $rootScope.clear();
-            
+
             $rootScope.cores = {};
             angular.forEach($rootScope.selectedProduct.opcoes, function(opcao, i) {
                 $rootScope.cores[opcao.cor] = opcao.cor;
@@ -135,7 +135,51 @@ angular.module("App.controllers", [])
         }];
 
     })
-    .controller("CadastrosController", function($scope) {
+    .controller("CadastrosController", function($scope, $rootScope) {
+
+        $scope.isCollapsed = true;
+
+        $scope.newProduct = {};
+        $scope.newColorProduct = {};
+        $scope.newSizeProduct = {};
+
+        $scope.tamanhosProdutos = [];
+        $scope.coresProdutos = [];
+
+
+
+        $scope.salvarTamanhoProduto = function() {
+            $scope.tamanhosProdutos.push($scope.newSizeProduct);
+            $scope.newSizeProduct = {};
+        }
+        $scope.salvarCorProduto = function() {
+            $scope.coresProdutos.push($scope.newColorProduct);
+            $scope.newColorProduct = {};
+
+        }
+        $scope.salvarProduto = function() {
+            var opcoes = [];
+            //opcoes: [{ tamanho: 'I21', cor: '1002' }, { tamanho: 'F33', cor: '1002' }]
+
+            for (var i = $scope.coresProdutos.length - 1; i >= 0; i--) {
+                var cor = $scope.coresProdutos[i].code;
+                for (var j = $scope.tamanhosProdutos.length - 1; j >= 0; j--) {
+                    var item = {};
+                    item.cor = cor;
+                    item.tamanho = $scope.tamanhosProdutos[j].tamanho;
+                    opcoes.push(item);
+                }
+            }
+
+
+
+            $scope.newProduct.opcoes = opcoes;
+            $rootScope.products.push($scope.newProduct);
+            $scope.newProduct = {};
+
+            $scope.isCollapsed = false;
+        }
+
         $scope.links = [{
             title: "Estrutura comercial",
             icon: "fa-building-o",
@@ -168,7 +212,7 @@ angular.module("App.controllers", [])
             link: "/cadastro1"
         }];
     })
-    .controller("ConsultasController", function($scope) {
+    .controller("ConsultasController", function($scope, $rootScope) {
         $scope.links = [{
             title: "Consulta 1",
             icon: "fa-search",
@@ -182,7 +226,7 @@ angular.module("App.controllers", [])
         }];
 
     })
-    .controller("PedidosController", function($scope) {
+    .controller("PedidosController", function($scope, $rootScope) {
         $scope.links = [{
             title: "Pedido sem limite",
             icon: "fa-plus-circle",
