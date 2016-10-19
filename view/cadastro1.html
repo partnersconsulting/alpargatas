@@ -5,6 +5,7 @@
                 <th>Codigo</th>
                 <th>Nome</th>
                 <th>cotaLivre</th>
+                <th>valor</th>
                 <th>zona</th>
                 <th>gnv</th>
                 <th>grv</th>
@@ -18,6 +19,7 @@
                 <td>
                     <i class="fa" ng-class="{'fa-check-circle':product.cotaLivre, 'fa-times': !product.cotaLivre}"></i>
                 </td>
+                <td>{{product.valor}}</td>
                 <td>{{product.zona}}</td>
                 <td>{{product.gnv}}</td>
                 <td>{{product.grv}}</td>
@@ -41,12 +43,19 @@
                         <input type="text" class="form-control" ng-model="newProduct.name">
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <div class="form-group">
                         <label for="exampleInputName2">Cota Livre</label>
                         <input type="checkbox" class="form-control" ng-model="newProduct.cotaLivre">
                     </div>
                 </div>
+                <div class="col-md-1">
+                    <div class="form-group">
+                        <label for="exampleInputName2">Valor</label>
+                        <input type="number" class="form-control" ng-model="newProduct.valor">
+                    </div>
+                </div>
+
                 <div class="col-md-2">
                     <div class="form-group">
                         <label for="exampleInputName2">Zona</label>

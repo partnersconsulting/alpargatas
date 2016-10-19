@@ -2,6 +2,44 @@ angular.module("App.controllers", [])
     .controller("MainController", function($scope, $rootScope, $filter) {
 
 
+
+
+
+
+        $rootScope.listaGNV = [
+
+            { code: 'AC60', name: '' }
+        ];
+        $rootScope.listaGRV = [
+            { code: '610', name: '' },
+            { code: '610', name: '' },
+            { code: '620', name: '' },
+            { code: '630', name: '' }
+        ];
+        $rootScope.listaZONA = [
+            { code: '600610', name: '' },
+            { code: '600611', name: '' },
+            { code: '600620', name: '' },
+            { code: '600630', name: '' }
+        ];
+        $rootScope.listaCLIENTE = [
+            { code: '100001', name: '' },
+            { code: '100002', name: '' },
+            { code: '100003', name: '' },
+            { code: '100004', name: '' }
+        ];
+
+
+        $rootScope.selectedGNV = '';
+        $rootScope.selectedGRV = '';
+        $rootScope.selectedZONA = '';
+        $rootScope.selectedCLIENTE = '';
+
+
+
+
+
+
         $rootScope.products = [{
             code: '400001',
             name: 'Chaveiro',
@@ -9,6 +47,8 @@ angular.module("App.controllers", [])
             zona: '190000',
             gnv: '110000',
             grv: '20000',
+            data: '10/12/2016',
+            valor: 10.5,
             opcoes: [{ tamanho: '001', cor: '1001', value: 0 }]
         }, {
             code: '400002',
@@ -17,6 +57,8 @@ angular.module("App.controllers", [])
             zona: '99000',
             gnv: '19000',
             grv: '10000',
+            data: '10/12/2016',
+            valor: 18.5,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
         }, {
             code: '400003',
@@ -25,6 +67,8 @@ angular.module("App.controllers", [])
             zona: '80000',
             gnv: '50000',
             grv: '5000',
+            data: '10/12/2016',
+            valor: 16.5,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }, { tamanho: '334', cor: '1003' }, { tamanho: '356', cor: '1003' }, { tamanho: '378', cor: '1003' }, { tamanho: '390', cor: '1003' }, { tamanho: '412', cor: '1003' }, { tamanho: '434', cor: '1003' }]
         }, {
             code: '400004',
@@ -33,6 +77,8 @@ angular.module("App.controllers", [])
             zona: '800000',
             gnv: '50000',
             grv: '3000',
+            data: '10/12/2016',
+            valor: 20.0,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
         }, {
             code: '700005',
@@ -41,6 +87,8 @@ angular.module("App.controllers", [])
             zona: '1800000',
             gnv: '770000',
             grv: '33000',
+            data: '10/12/2016',
+            valor: 25.0,
             opcoes: [{ tamanho: 'I21', cor: '1002' }, { tamanho: 'F33', cor: '1002' }]
         }];
 
@@ -100,13 +148,35 @@ angular.module("App.controllers", [])
 
         $rootScope.clear = function() {
             $rootScope.itemPedido = {};
-            $rootScope.itemPedido.code = $rootScope.selectedProduct.code;
             $rootScope.totalTamanhos = 0;
         }
 
         $rootScope.addItem = function() {
             $rootScope.itemPedido.total = $rootScope.totalTamanhos;
-            $rootScope.itensPedido.push($rootScope.itemPedido);
+
+
+            for (itemColor in $rootScope.itemPedido) {
+
+                for (itemTamanho in $rootScope.itemPedido[itemColor]) {
+                    var itemLista = {};
+                    itemLista.produto = $rootScope.selectedProduct;
+                    itemLista.tamanho = itemTamanho;
+                    itemLista.value = $rootScope.itemPedido[itemColor][itemTamanho].value;
+
+                    if (itemLista.value > 0) {
+                        $rootScope.itensPedido.push(itemLista);
+
+                    }
+
+
+                }
+
+            }
+
+
+
+            // $rootScope.itemPedido.produto = $rootScope.selectedProduct;
+            //$rootScope.itensPedido.push($rootScope.itemPedido);
 
             $rootScope.clear();
         }
