@@ -6,25 +6,25 @@
 			<select ng-model="me.myChoice" ng-options="item in listaGNV"></select>
 			<select ng-model="key" ng-options="key as key for (key, val) in listaGNV" ng-change="update()"></select>
 			 -->
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>GNV:</label>
                     <select class="dropdown-alpa" ng-model="selectedGNV" ng-options="item.code for item in listaGNV"></select>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>GRV:</label>
                     <select class="dropdown-alpa" ng-disabled="selectedGNV==''" ng-model="selectedGRV" ng-options="item.code for item in listaGRV"></select>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>Zona:</label>
                     <select class="dropdown-alpa" ng-disabled="selectedGRV==''" ng-model="selectedZONA" ng-options="item.code for item in listaZONA"></select>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label>Cliente:</label>
                     <select class="dropdown-alpa" ng-disabled="selectedZONA==''" ng-model="selectedCLIENTE" ng-options="item.code for item in listaCLIENTE"></select>
@@ -32,9 +32,9 @@
             </div>
         </div>
         <div class="row" uib-collapse="!selectedCLIENTE">
-       <!--  <div class="row"> -->
+            <!--  <div class="row"> -->
             <div class="col-md-2">
-            	<img ng-if="selectedProduct" class="img-responsive img-produto" src="view/images/{{selectedProduct.foto}}">
+                <img ng-if="selectedProduct" class="img-responsive img-produto" src="view/images/{{selectedProduct.foto}}">
             </div>
             <div class="col-md-10">
                 <div class="row">
@@ -51,56 +51,64 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label for="code">Código</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.code}}">
+                            <span class="span-info">{{selectedProduct.code}}</span>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label>Valor</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.valor}}">
+                            <span class="span-info">R$ {{selectedProduct.valor}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Data</label>
+                            <span class="span-info">{{selectedProduct.data}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
                         </div>
                     </div>
                 </div>
-                <div class="row" uib-collapse="!selectedCLIENTE"> 
-<!--                 <div class="row"> -->
+                <div class="row" uib-collapse="!selectedCLIENTE">
+                    <!--                 <div class="row"> -->
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <span class="span-info selected-info" ng-show="selectedProduct.cotaLivre">Cota Livre</span>
+                        </div>
+                    </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label class="selected-info" ng-show="selectedProduct.cotaLivre">Cota Livre</label>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
                             <label>GNV</label>
-                            <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'gnv'}" type="text" class="form-control" disabled value="{{selectedProduct.gnv}}">
+                            <span class="span-info" ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'gnv'}">{{selectedProduct.gnv}}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label>GRV</label>
-                            <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'grv'}" type="text" class="form-control" disabled value="{{selectedProduct.grv}}">
+                            <span class="span-info" ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'grv'}">{{selectedProduct.grv}}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label>Zona</label>
-                            <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'zona'}" type="text" class="form-control" disabled value="{{selectedProduct.zona}}">
+                            <span class="span-info" ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'zona'}">{{selectedProduct.zona}}</span>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
-                            <label>Data</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.data}}">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </form>
-     <div class="table-products" ng-show="selectedCLIENTE"> 
-    <!-- <div class="table-products"> -->
+    <div class="table-products" ng-show="selectedCLIENTE">
+        <!-- <div class="table-products"> -->
         <div class="product-header">
             <span>Cor</span>
             <span ng-repeat="tamanho in tamanhos">Tam: {{tamanho}}</span>

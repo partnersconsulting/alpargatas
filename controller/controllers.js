@@ -29,11 +29,31 @@ angular.module("App.controllers", [])
             { code: '100004', name: '' }
         ];
 
+        $rootScope.listaBloqueio = [
+            { code: 'gnv', name: '' },
+            { code: 'grv', name: '' },
+            { code: 'zona', name: '' }
+
+        ];
+
+        $rootScope.listaEstoque = [
+            { code: 'geral', name: '' },
+            { code: 'produto', name: '' },
+            { code: 'cor', name: '' }
+
+        ];
+        $rootScope.listaFotos = [
+            { code: 'hava1.jpg', name: '' },
+            { code: 'hava2.jpg', name: '' },
+            { code: 'hava3.jpg', name: '' }
+
+        ];
+
 
         $rootScope.selectedGNV = '';
         $rootScope.selectedGRV = '';
         $rootScope.selectedZONA = '';
-        $rootScope.selectedCLIENTE = '';
+        $rootScope.selectedCLIENTE = 'teste';
 
 
 
@@ -286,6 +306,7 @@ angular.module("App.controllers", [])
         $scope.isCollapsed = true;
 
         $scope.newProduct = {};
+        $scope.newProduct.data = '20/11/2016';
         $scope.newColorProduct = {};
         $scope.newSizeProduct = {};
 
@@ -293,6 +314,9 @@ angular.module("App.controllers", [])
         $scope.coresProdutos = [];
 
 
+        $scope.open2 = function() {
+            $scope.popup2.opened = true;
+        };
 
         $scope.salvarTamanhoProduto = function() {
             $scope.tamanhosProdutos.push($scope.newSizeProduct);

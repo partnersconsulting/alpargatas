@@ -23,7 +23,7 @@ html {
     /* background-image: url(../images/image001.jpg); */
     /* background-image: url(../images/fundo-havaians.png); */
     height: 100%;
-        overflow-y: auto;
+    overflow-y: auto;
     background-image: url(../images/bg5.jpg);
     background-size: cover;
 }
@@ -139,6 +139,8 @@ body {
     background: rgb(255, 255, 255);
     line-height: 30px;
     height: 30px;
+    width: 70%;
+    display: block;
 }
 
 .dropdown-alpa[disabled] {
@@ -150,12 +152,31 @@ body {
     font-weight: bold;
 }
 
-.form-inline .form-control.selected-info,
-.selected-info{
-        padding: 0 5px;
+.span-info {
+    color: #000000;
+    background: #f5f5f5;
+    border: 1px solid #bfbfbf;
+    font-size: 0.875rem;
+    line-height: 2.8;
+    height: 2.5rem;
+    width: 60%;
+    text-align: center;
+}
+
+.span-info.selected-info {
+    padding: 0 5px;
     background-color: #3bb53b;
     color: #fff;
     font-weight: 600;
+}
+
+tfoot {
+    background: #ccc;
+    font-weight: 600;
+}
+
+.table>tfoot>tr>td {
+    line-height: .8;
 }
 
 
