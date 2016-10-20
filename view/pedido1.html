@@ -1,6 +1,6 @@
 <panel title="Pedido sem limite" linkback="#/home" type="form">
     <form class="form-inline">
-        <div class="row">
+        <div class="row line-row-filtro">
             <!-- 
 			<select ng-model="selectedGNV" ng-options="item in listaGNV" ng-change="update()"></select>
 			<select ng-model="me.myChoice" ng-options="item in listaGNV"></select>
@@ -31,67 +31,71 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div class="row" uib-collapse="!selectedCLIENTE"> -->
-        <div class="row">
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Name</label>
-                    <div class="btn-group form-control" uib-dropdown is-open="status.isopen">
-                        <button id="single-button" type="button" class="btn-dropdown" uib-dropdown-toggle ng-disabled="disabled">
-                            {{selectedProduct.name}} <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                            <li role="menuitem" ng-repeat="product in products" ng-click="selectProduct(product.code)">{{product.name}}</li>
-                        </ul>
+        <div class="row" uib-collapse="!selectedCLIENTE">
+       <!--  <div class="row"> -->
+            <div class="col-md-2">
+            	<img class="img-responsive img-produto" src="/view/images/{{selectedProduct.foto}}">
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <div class="btn-group form-control" uib-dropdown is-open="status.isopen">
+                                <button id="single-button" type="button" class="btn-dropdown" uib-dropdown-toggle ng-disabled="disabled">
+                                    {{selectedProduct.name}} <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                    <li role="menuitem" ng-repeat="product in products" ng-click="selectProduct(product.code)">{{product.name}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="code">Código</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.code}}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Cota Livre</label>
+                            <input type="checkbox" class="form-control" disabled ng-model="selectedProduct.cotaLivre">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label for="code">Código</label>
-                    <input type="text" class="form-control" disabled value="{{selectedProduct.code}}">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Cota Livre</label>
-                    <input type="checkbox" class="form-control" disabled ng-model="selectedProduct.cotaLivre">
-                </div>
-            </div>
-        </div>
-        <!-- <div class="row" uib-collapse="!selectedCLIENTE"> -->
-        <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Cota</label>
-                    <input type="text" class="form-control" disabled value="{{selectedProduct.zona}}">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>GNV</label>
-                    <input type="text" class="form-control" disabled value="{{selectedProduct.gnv}}">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>GRV</label>
-                    <input type="text" class="form-control" disabled value="{{selectedProduct.grv}}">
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Valor</label>
-                    <input type="text" class="form-control" disabled value="{{selectedProduct.valor}}">
+                <div class="row" uib-collapse="!selectedCLIENTE"> 
+<!--                 <div class="row"> -->
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Cota</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.zona}}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>GNV</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.gnv}}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>GRV</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.grv}}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Valor</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.valor}}">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </form>
-
-
-    <!-- <div class="table-products" ng-show="selectedCLIENTE"> -->
-    <div class="table-products">
+     <div class="table-products" ng-show="selectedCLIENTE"> 
+    <!-- <div class="table-products"> -->
         <div class="product-header">
             <span>Cor</span>
             <span ng-repeat="tamanho in tamanhos">Tam: {{tamanho}}</span>
@@ -177,7 +181,6 @@
         	        </span>
         </span> -->
     </div>
-
     <div class="actions" ng-show="itensPedido.length">
         <button type="button" class="btn btn-info" ng-click="addItem()"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Cotação</button>
         <button type="button" class="btn btn-success" ng-click="addItem()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedido</button>

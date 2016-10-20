@@ -48,6 +48,7 @@ angular.module("App.controllers", [])
             gnv: '110000',
             grv: '20000',
             data: '20/11/2016',
+            foto: 'chaveiro.jpg',
             valor: 10.5,
             opcoes: [{ tamanho: '001', cor: '1001', value: 0 }]
         }, {
@@ -58,6 +59,7 @@ angular.module("App.controllers", [])
             gnv: '19000',
             grv: '10000',
             data: '10/06/2016',
+            foto: 'retro.jpg',
             valor: 18.5,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
         }, {
@@ -68,6 +70,7 @@ angular.module("App.controllers", [])
             gnv: '50000',
             grv: '5000',
             data: '5/12/2016',
+            foto: 'tradicional.jpg',
             valor: 16.5,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }, { tamanho: '334', cor: '1003' }, { tamanho: '356', cor: '1003' }, { tamanho: '378', cor: '1003' }, { tamanho: '390', cor: '1003' }, { tamanho: '412', cor: '1003' }, { tamanho: '434', cor: '1003' }]
         }, {
@@ -78,6 +81,7 @@ angular.module("App.controllers", [])
             gnv: '50000',
             grv: '3000',
             data: '10/12/2016',
+            foto: 'color.jpg',
             valor: 20.0,
             opcoes: [{ tamanho: '334', cor: '1002' }, { tamanho: '356', cor: '1002' }, { tamanho: '378', cor: '1002' }, { tamanho: '390', cor: '1002' }, { tamanho: '412', cor: '1002' }, { tamanho: '434', cor: '1002' }]
         }, {
@@ -89,6 +93,7 @@ angular.module("App.controllers", [])
             tipo: 'grade',
             grv: '33000',
             data: '10/01/2017',
+            foto: 'simpsons.jpg',
             valor: 25.0,
             opcoes: [{
                 tamanho: 'I21',
