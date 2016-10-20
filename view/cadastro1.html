@@ -75,28 +75,39 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label>Tipo Bloqueio</label>
                         <select class="dropdown-alpa" ng-model="newProduct.tipoBloqueio" ng-options="item.code for item in listaBloqueio"></select>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
                         <label>Tipo Estoque</label>
                         <select class="dropdown-alpa" ng-model="newProduct.tipoEstoque" ng-options="item.code for item in listaEstoque"></select>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Data</label>
+                        <input type="text" class="form-control" ng-model="newProduct.data">
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Estoque</label>
+                        <input type="number" maxlength="7" class="form-control" ng-model="newProduct.estoque">
+                    </div>
+                </div>
+                <div class="col-md-2">
                     <div class="form-group">
                         <label>Foto</label>
                         <select class="dropdown-alpa" ng-model="newProduct.foto" ng-options="item.code for item in listaFotos"></select>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <div class="form-group">
-                        <label>Data</label>
-                        <input type="text" class="form-control" ng-model="newProduct.data">
+                        <img ng-if="newProduct.foto" class="img-responsive img-produto" src="view/images/{{newProduct.foto.code}}">
                     </div>
                 </div>
                 <!-- 
@@ -139,7 +150,7 @@
                         <div class="row sub-panel">
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label>Cor</label>
+                                    <label>Nava Cor</label>
                                     <input style="background-color: #{{newColorProduct.code}}" type="text" maxlength="6" class="form-control" ng-model="newColorProduct.code">
                                 </div>
                             </div>
@@ -172,7 +183,7 @@
                         <div class="row sub-panel">
                             <div class="col-md-10">
                                 <div class="form-group">
-                                    <label>Codigo tamanho</label>
+                                    <label>Novo Codigo tamanho</label>
                                     <input type="number" class="form-control" ng-model="newSizeProduct.tamanho">
                                 </div>
                             </div>

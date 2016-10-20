@@ -170,6 +170,17 @@ body {
     font-weight: 600;
 }
 
+.span-info.cota-info {
+    padding: 0 5px;
+    background-color: #ffb100;
+    color: #fff;
+    font-weight: 600;
+}
+
+.span-info.cota-info.cota-info-estourada {
+    background-color: red;
+}
+
 tfoot {
     background: #ccc;
     font-weight: 600;
@@ -177,6 +188,10 @@ tfoot {
 
 .table>tfoot>tr>td {
     line-height: .8;
+}
+
+.table-products .product-footer.cota-estourada {
+    background-color: red;
 }
 
 
@@ -203,6 +218,39 @@ tfoot {
 
 .alpargatas-content.ng-leave {
     animation: slideOutLeft 0.1s both ease-in;
+}
+
+.icon-blue {
+    color: #2aabd2;
+}
+
+.icon-green {
+    color: #3c763d;
+}
+
+.header-blue {
+    background-color: #2aabd2;
+}
+
+.header-green {
+    background-color: #3c763d;
+}
+
+.modal-title {
+    margin: 0;
+    line-height: 1.42857143;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5em;
+}
+
+.modal-header {
+    color: #fff;
+}
+
+.modal-body {
+    padding: 55px;
+    text-align: center;
 }
 
 
@@ -254,7 +302,7 @@ tfoot {
 /* ************** xxx ************** */
 
 .table-products {
-    margin-top: 10px;
+    margin: 10px 0;
     padding: 10px 20px;
     background-color: #fff;
 }
@@ -355,7 +403,7 @@ tfoot {
 /* ************** LISTA PEDIDO ************** */
 
 .pedidos {
-    padding: 20px;
+    padding: 20px 20px 0;
     /* overflow-y: scroll;
     height: 310px;
     display: block; */

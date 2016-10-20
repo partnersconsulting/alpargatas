@@ -1,5 +1,5 @@
 angular.module("App.controllers", [])
-    .controller("MainController", function($scope, $rootScope, $filter) {
+    .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document) {
 
 
 
@@ -43,9 +43,9 @@ angular.module("App.controllers", [])
 
         ];
         $rootScope.listaFotos = [
-            { code: 'hava1.jpg', name: '' },
-            { code: 'hava2.jpg', name: '' },
-            { code: 'hava3.jpg', name: '' }
+            { code: 'hava1.jpg' },
+            { code: 'hava2.jpg' },
+            { code: 'hava3.jpg' }
 
         ];
 
@@ -156,10 +156,15 @@ angular.module("App.controllers", [])
             }]
         }];
 
+        var today = new Date();
+
+        $rootScope.dataPedido = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
         $rootScope.itemPedido = {};
         $rootScope.totalTamanhos = 0;
         $rootScope.itensPedido = [];
         $rootScope.totalValorPedido = 0;
+        $rootScope.estourouCota = false;
+        $rootScope.estourouEstoque = false;
 
 
         $rootScope.selectProduct = function(code) {
@@ -190,10 +195,8 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.onChange = function() {
-
-            //console.log($rootScope.itemPedido['1002']['434']);
-
             $rootScope.totalTamanhos = 0;
+
             for (itemColor in $rootScope.itemPedido) {
                 if (itemColor != 'code') {
 
@@ -209,9 +212,26 @@ angular.module("App.controllers", [])
                 console.log('itemTamanho: ' + itemTamanho +' : '+ itemTamanho.value);
                 }*/
             }
+
+
+
+            var limiteCota = $rootScope.selectedProduct[$rootScope.selectedProduct.tipoBloqueio];
+            var limiteEstoque = $rootScope.selectedProduct.estoque;
+
+            if (!$rootScope.selectedProduct.cotaLivre) {
+
+                //if (limiteCota > limiteEstoque) {
+                $rootScope.estourouCota = $rootScope.totalTamanhos > limiteCota;
+                // /}
+                $rootScope.estourouEstoque = $rootScope.totalTamanhos > limiteEstoque;
+            } else {
+                $rootScope.estourouEstoque = $rootScope.totalTamanhos > limiteEstoque;
+            }
         }
 
         $rootScope.clear = function() {
+            $rootScope.estourouCota = false;
+            $rootScope.estourouEstoque = false;
             $rootScope.itemPedido = {};
             $rootScope.totalTamanhos = 0;
         }
@@ -277,10 +297,55 @@ angular.module("App.controllers", [])
             $rootScope.clear();
         }
 
+        $scope.fecharCotacao = function (){
+
+            $scope.open('lg', '', 'view/modal/cotacao.html');
+        }
+        $scope.fecharPedido = function (){
+            $scope.open('lg', '', 'view/modal/pedido.html');
+        }
+
+
+        $scope.open = function(size, parentSelector, page) {
+            var parentElem = parentSelector ?
+                angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
+            var modalInstance = $uibModal.open({
+                animation: true,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: page,
+                controller: 'ModalInstanceCtrl',
+                controllerAs: '$ctrl',
+                size: size,
+                appendTo: parentElem,
+                resolve: {
+                    items: function() {
+                        return [];
+                    }
+                }
+            });
+
+            modalInstance.result.then(function(selectedItem) {
+                console.log('true');
+            }, function() {
+
+                console.log('false');
+            });
+        };
+
 
 
         $rootScope.selectProduct($rootScope.products[2].code);
 
+    })
+    .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance) {
+        $scope.ok = function() {
+            $uibModalInstance.close();
+        };
+
+        $scope.cancel = function() {
+            $uibModalInstance.dismiss('cancel');
+        };
     })
     .controller("HomeController", function($scope, $rootScope) {
         $scope.links = [{
