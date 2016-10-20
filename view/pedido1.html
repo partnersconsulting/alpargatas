@@ -66,10 +66,9 @@
                 </div>
                 <div class="row" uib-collapse="!selectedCLIENTE"> 
 <!--                 <div class="row"> -->
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="form-group">
                             <label class="selected-info" ng-show="selectedProduct.cotaLivre">Cota Livre</label>
-                            
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -88,6 +87,12 @@
                         <div class="form-group">
                             <label>Zona</label>
                             <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'zona'}" type="text" class="form-control" disabled value="{{selectedProduct.zona}}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Data</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.data}}">
                         </div>
                     </div>
                 </div>
