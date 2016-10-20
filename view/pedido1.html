@@ -34,7 +34,7 @@
         <div class="row" uib-collapse="!selectedCLIENTE">
        <!--  <div class="row"> -->
             <div class="col-md-2">
-            	<img class="img-responsive img-produto" src="/view/images/{{selectedProduct.foto}}">
+            	<img ng-if="selectedProduct" class="img-responsive img-produto" src="/view/images/{{selectedProduct.foto}}">
             </div>
             <div class="col-md-10">
                 <div class="row">
@@ -59,8 +59,8 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Cota Livre</label>
-                            <input type="checkbox" class="form-control" disabled ng-model="selectedProduct.cotaLivre">
+                            <label>Valor</label>
+                            <input type="text" class="form-control" disabled value="{{selectedProduct.valor}}">
                         </div>
                     </div>
                 </div>
@@ -68,26 +68,26 @@
 <!--                 <div class="row"> -->
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Cota</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.zona}}">
+                            <label class="selected-info" ng-show="selectedProduct.cotaLivre">Cota Livre</label>
+                            
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>GNV</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.gnv}}">
+                            <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'gnv'}" type="text" class="form-control" disabled value="{{selectedProduct.gnv}}">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>GRV</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.grv}}">
+                            <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'grv'}" type="text" class="form-control" disabled value="{{selectedProduct.grv}}">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Valor</label>
-                            <input type="text" class="form-control" disabled value="{{selectedProduct.valor}}">
+                            <label>Zona</label>
+                            <input ng-class="{'selected-info': selectedProduct.tipoBloqueio == 'zona'}" type="text" class="form-control" disabled value="{{selectedProduct.zona}}">
                         </div>
                     </div>
                 </div>
@@ -106,7 +106,7 @@
 	            	<span style="background-color: #{{cor}}" class="show-color">{{cor}}</span>
             </span>
             <span ng-repeat="tamanho in tamanhos">
-	            	<input class="input-sizes" type="number" min="0" max="99999" maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor][tamanho].value">
+	            	<input class="input-sizes" type="number" min="0" ng-max="666"  maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor][tamanho].value">
 	            </span>
         </div>
         <div class="product-footer">

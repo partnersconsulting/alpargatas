@@ -150,6 +150,14 @@ body {
     font-weight: bold;
 }
 
+.form-inline .form-control.selected-info,
+.selected-info{
+        padding: 0 5px;
+    background-color: #3bb53b;
+    color: #fff;
+    font-weight: 600;
+}
+
 
 /* ************** Animate ************** */
 
