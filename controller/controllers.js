@@ -69,17 +69,17 @@ angular.module("App.controllers", [])
 
 
 
-         $rootScope.listaFotos = [
+        $rootScope.listaEstrutura = [
 
+            { nivel1: 'AC60', desc1: 'Havaianas', nivel2: '610', desc2: 'Regional Sudeste', nivel3: '600610', desc3: 'Olavo Rodrigues' },
+            { nivel1: 'AC60', desc1: 'Havaianas', nivel2: '610', desc2: 'Regional Sudeste', nivel3: '600611', desc3: 'Jane Gonçalves' },
+            { nivel1: 'AC60', desc1: 'Havaianas', nivel2: '620', desc2: 'Regional Nordeste', nivel3: '600620', desc3: 'José Renan Silva' },
+            { nivel1: 'AC60', desc1: 'Havaianas', nivel2: '630', desc2: 'Regional Norte', nivel3: '600630', desc3: 'Hudson Medeiros' }
 
 
         ];
 
-        Nível 1 Descrição   Nível 2 Descrição   Nível 3 Descrição
-        {nivel1:'AC60', desc1:'Havaianas', nivel2:'610',desc2:'Regional Sudeste', nivel3:'600610',desc3:'Olavo Rodrigues'}
-        {nivel1:'AC60', desc1:'Havaianas', nivel2:'610',desc2:'Regional Sudeste    600611  Jane Gonçalves
-        {nivel1:'AC60', desc1:'Havaianas', nivel2:'620',desc2:'Regional Nordeste   600620  José Renan Silva
-        {nivel1:'AC60', desc1:'Havaianas', nivel2:'630',desc2:'Regional Norte  600630  Hudson Medeiros
+
 
 
 
