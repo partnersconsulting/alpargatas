@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="form-group">
+                        <div class="form-group" ng-show="selectedProduct.tipoEstoque == 'geral'">
                             <label>Estoque</label>
                             <span class="span-info" ng-class="{'cota-info cota-info-estourada':estourouEstoque == true}">{{selectedProduct.estoque}}</span>
                         </div>
@@ -129,7 +129,8 @@
 	            	<span  ng-show="selectedProduct.tipoEstoque == 'cor'" class="limite">{{cor.estoque }}</span>
             </span>
             <span ng-repeat="tamanho in tamanhos">
-	            	<input class="input-sizes" type="number" max="{{tamanho.estoque}}"   maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor.cor][tamanho.tamanho].value">
+	            	<input ng-if="tamanho.grade" class="input-sizes" type="number" max="{{tamanho.estoque}}"   ng-change="onChange()" ng-model="itemPedido[cor.cor][tamanho.tamanho].value">
+	            	<input ng-if="!tamanho.grade" class="input-sizes" type="number"    ng-change="onChange()" ng-model="itemPedido[cor.cor][tamanho.tamanho].value">
 	            	<span  ng-show="selectedProduct.tipoEstoque == 'tamanho'" class="limite">{{tamanho.estoque }}</span>
 	            	<span class="limite" ng-show="tamanho.grade">
 						<span class="item-grade" ng-repeat="item in tamanho.grade"> {{item.tamanho}}({{item.value}})&nbsp;&nbsp;</span>

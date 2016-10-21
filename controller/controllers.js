@@ -78,8 +78,68 @@ angular.module("App.controllers", [])
 
 
         ];
+        $rootScope.listaClientes = [
+            { nivel1: 'AC60', nivel2: '610', nivel3: '600610', codigo: '100001', desc: 'Cliente 1 do Vendedor 600610' },
+            { nivel1: 'AC60', nivel2: '610', nivel3: '600611', codigo: '100002', desc: 'Cliente 2 do Vendedor 600611' },
+            { nivel1: 'AC60', nivel2: '620', nivel3: '600620', codigo: '100003', desc: 'Cliente 3 do Vendedor 600620' },
+            { nivel1: 'AC60', nivel2: '630', nivel3: '600630', codigo: '100004', desc: 'Cliente 4 do Vendedor 600630' }
 
+        ];
 
+        $rootScope.listaPlanoVendas = [
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600610  ', produto: ' 400001  ', prev: '    1.000   ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600610  ', produto: ' 400002  ', prev: '    20.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600610  ', produto: ' 400003  ', prev: '    50.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600610  ', produto: ' 400004  ', prev: '    50.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600610  ', produto: ' 700005  ', prev: '    10.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600611  ', produto: ' 400001  ', prev: '    2.000   ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600611  ', produto: ' 400002  ', prev: '    40.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600611  ', produto: ' 400003  ', prev: '    100.000 ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600611  ', produto: ' 400004  ', prev: '    50.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  610 ', nivel3: '  600611  ', produto: ' 700005  ', prev: '    20.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  620 ', nivel3: '  600620  ', produto: ' 400001  ', prev: '    3.000   ' },
+            { nivel1: '   AC60    ', nivel2: '  620 ', nivel3: '  600620  ', produto: ' 400002  ', prev: '    50.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  620 ', nivel3: '  600620  ', produto: ' 400003  ', prev: '    110.000 ' },
+            { nivel1: '   AC60    ', nivel2: '  620 ', nivel3: '  600620  ', produto: ' 400004  ', prev: '    50.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  620 ', nivel3: '  600620  ', produto: ' 700005  ', prev: '    30.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  630 ', nivel3: '  600630  ', produto: ' 400001  ', prev: '    5.000   ' },
+            { nivel1: '   AC60    ', nivel2: '  630 ', nivel3: '  600630  ', produto: ' 400002  ', prev: '    60.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  630 ', nivel3: '  600630  ', produto: ' 400003  ', prev: '    120.000 ' },
+            { nivel1: '   AC60    ', nivel2: '  630 ', nivel3: '  600630  ', produto: ' 400004  ', prev: '    50.000  ' },
+            { nivel1: '   AC60    ', nivel2: '  630 ', nivel3: '  600630  ', produto: ' 700005  ', prev: '    40.000  ' }
+
+        ];
+
+        $rootScope.listaDisponibilidade = [
+            { cod: '  400001  ', cor: ' 1001    ', tam: ' 001 ', estoque: ' 2.000   ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400002  ', cor: ' 1002    ', tam: ' 334 ', estoque: ' 10.000  ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400002  ', cor: ' 1002    ', tam: ' 356 ', estoque: ' 10.000  ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400002  ', cor: ' 1002    ', tam: ' 378 ', estoque: ' 10.000  ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400002  ', cor: ' 1002    ', tam: ' 390 ', estoque: ' 10.000  ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400002  ', cor: ' 1002    ', tam: ' 412 ', estoque: ' 10.000  ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400002  ', cor: ' 1002    ', tam: ' 434 ', estoque: ' 10.000  ', ordemPR: ' 40.000  ', ordemPL: ' 50.000  ' },
+            { cod: '  400003  ', cor: ' 1002    ', tam: ' 334 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1002    ', tam: ' 356 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1002    ', tam: ' 378 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1002    ', tam: ' 390 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1002    ', tam: ' 412 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1002    ', tam: ' 434 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1003    ', tam: ' 334 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1003    ', tam: ' 356 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1003    ', tam: ' 378 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1003    ', tam: ' 390 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1003    ', tam: ' 412 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400003  ', cor: ' 1003    ', tam: ' 434 ', estoque: ' 20.000  ', ordemPR: ' 100.000 ', ordemPL: ' 150.000 ' },
+            { cod: '  400004  ', cor: ' 1002    ', tam: ' 334 ', estoque: ' 10.000  ', ordemPR: ' 20.000  ', ordemPL: ' 20.000  ' },
+            { cod: '  400004  ', cor: ' 1002    ', tam: ' 356 ', estoque: ' 10.000  ', ordemPR: ' 20.000  ', ordemPL: ' 20.000  ' },
+            { cod: '  400004  ', cor: ' 1002    ', tam: ' 378 ', estoque: ' 10.000  ', ordemPR: ' 20.000  ', ordemPL: ' 20.000  ' },
+            { cod: '  400004  ', cor: ' 1002    ', tam: ' 390 ', estoque: ' 10.000  ', ordemPR: ' 20.000  ', ordemPL: ' 20.000  ' },
+            { cod: '  400004  ', cor: ' 1002    ', tam: ' 412 ', estoque: ' 10.000  ', ordemPR: ' 20.000  ', ordemPL: ' 20.000  ' },
+            { cod: '  400004  ', cor: ' 1002    ', tam: ' 434 ', estoque: ' 10.000  ', ordemPR: ' 20.000  ', ordemPL: ' 20.000  ' },
+            { cod: '  700005  ', cor: ' 1002    ', tam: ' I21 ', estoque: ' 20.000  ', ordemPR: ' 80.000  ', ordemPL: ' 120.000 ' },
+            { cod: '  700005  ', cor: ' 1002    ', tam: ' F33 ', estoque: ' 30.000  ', ordemPR: ' 90.000  ', ordemPL: ' 130.000 ' }
+
+        ]
 
 
 
@@ -87,11 +147,11 @@ angular.module("App.controllers", [])
         $rootScope.products = [{
             code: '400001',
             name: 'Chaveiro',
-            cotaLivre: true,
+            cotaLivre: false,
             tipoBloqueio: 'gnv',
             tipoEstoque: 'geral',
             estoque: '100000',
-            gnv: '110000',
+            gnv: '90000',
             grv: '20000',
             zona: '1900',
 
@@ -127,18 +187,18 @@ angular.module("App.controllers", [])
             foto: 'tradicional.jpg',
             valor: 16.5,
             opcoes: [
-                { tamanho: '334', cor: '1002', estoque: '2000' },
-                { tamanho: '356', cor: '1002', estoque: '2000' },
-                { tamanho: '378', cor: '1002', estoque: '2000' },
-                { tamanho: '390', cor: '1002', estoque: '2000' },
-                { tamanho: '412', cor: '1002', estoque: '2000' },
-                { tamanho: '434', cor: '1002', estoque: '2000' },
-                { tamanho: '334', cor: '1003', estoque: '2000' },
-                { tamanho: '356', cor: '1003', estoque: '2000' },
-                { tamanho: '378', cor: '1003', estoque: '2000' },
-                { tamanho: '390', cor: '1003', estoque: '1500' },
-                { tamanho: '412', cor: '1003', estoque: '250' },
-                { tamanho: '434', cor: '1003', estoque: '250' }
+                { tamanho: '334', cor: '1002', estoque: '20000' },
+                { tamanho: '356', cor: '1002', estoque: '20000' },
+                { tamanho: '378', cor: '1002', estoque: '20000' },
+                { tamanho: '390', cor: '1002', estoque: '20000' },
+                { tamanho: '412', cor: '1002', estoque: '20000' },
+                { tamanho: '434', cor: '1002', estoque: '20000' },
+                { tamanho: '334', cor: '1003', estoque: '20000' },
+                { tamanho: '356', cor: '1003', estoque: '20000' },
+                { tamanho: '378', cor: '1003', estoque: '20000' },
+                { tamanho: '390', cor: '1003', estoque: '20000' },
+                { tamanho: '412', cor: '1003', estoque: '20000' },
+                { tamanho: '434', cor: '1003', estoque: '20000' }
             ]
         }, {
             code: '400004',
@@ -167,9 +227,9 @@ angular.module("App.controllers", [])
             cotaLivre: true,
             tipoBloqueio: 'gnv',
             tipoEstoque: 'geral',
-            estoque: '600800',
-            gnv: '770000',
-            grv: '33000',
+            estoque: '6800',
+            gnv: '7700',
+            grv: '3300',
             zona: '1800',
             tipo: 'grade',
             data: new Date('01/10/2017'),
@@ -178,7 +238,7 @@ angular.module("App.controllers", [])
             opcoes: [{
                 tamanho: 'I21',
                 cor: '1002',
-                estoque: '15000',
+                estoque: '7700',
                 grade: [
                     { tamanho: "212", value: 1 },
                     { tamanho: "234", value: 2 },
@@ -190,7 +250,7 @@ angular.module("App.controllers", [])
             }, {
                 tamanho: 'F33',
                 cor: '1002',
-                estoque: '15000',
+                estoque: '7700',
                 grade: [
                     { tamanho: "334", value: 1 },
                     { tamanho: "356", value: 2 },
@@ -241,7 +301,7 @@ angular.module("App.controllers", [])
 
                     for (itemTamanho in $rootScope.itemPedido[itemColor]) {
                         $rootScope.totalTamanhos += $rootScope.itemPedido[itemColor][itemTamanho].value;
-                        //console.log('>> ' + $rootScope.itemPedido[itemColor][itemTamanho].value);
+
                     }
 
                 }
@@ -258,15 +318,19 @@ angular.module("App.controllers", [])
 
             if (!$rootScope.selectedProduct.cotaLivre) {
 
+                console.log('>>>>' + $rootScope.totalTamanhos);
                 //if (limiteCota > limiteEstoque) {
                 $rootScope.estourouCota = $rootScope.totalTamanhos > limiteCota;
                 // /}
                 $rootScope.estourouEstoque = $rootScope.totalTamanhos > limiteEstoque;
             } else {
+
+
+
                 $rootScope.estourouEstoque = $rootScope.totalTamanhos > limiteEstoque;
             }
 
-            $rootScope.estourouEstoque = isNaN($rootScope.totalTamanhos)
+          //  $rootScope.estourouEstoque = isNaN($rootScope.totalTamanhos)
         }
 
         $rootScope.clearPedido = function() {
@@ -282,76 +346,102 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.addItem = function() {
-            $rootScope.itemPedido.total = $rootScope.totalTamanhos;
+                $rootScope.itemPedido.total = $rootScope.totalTamanhos;
 
 
 
-            var date = $rootScope.selectedProduct.data;
+                var date = $rootScope.selectedProduct.data;
 
 
-            if ($rootScope.maiorData == '') {
-                $rootScope.maiorData = date;
-            } else {
-                if (date > $rootScope.maiorData) {
+                if ($rootScope.maiorData == '') {
                     $rootScope.maiorData = date;
+                } else {
+                    if (date > $rootScope.maiorData) {
+                        $rootScope.maiorData = date;
+                    }
                 }
-            }
 
-            for (itemColor in $rootScope.itemPedido) {
+                for (itemColor in $rootScope.itemPedido) {
 
-                for (itemTamanho in $rootScope.itemPedido[itemColor]) {
-                    var itemLista = {};
-                    itemLista.produto = $rootScope.selectedProduct;
-                    itemLista.tamanho = itemTamanho;
-                    itemLista.grade = '-';
-                    itemLista.value = $rootScope.itemPedido[itemColor][itemTamanho].value;
-
+                    for (itemTamanho in $rootScope.itemPedido[itemColor]) {
+                        var itemLista = {};
+                        itemLista.produto = $rootScope.selectedProduct;
+                        itemLista.tamanho = itemTamanho;
+                        itemLista.grade = '-';
+                        itemLista.value = $rootScope.itemPedido[itemColor][itemTamanho].value;
 
 
-                    if ($rootScope.selectedProduct.tipo == 'grade') {
+
+                        if ($rootScope.selectedProduct.tipo == 'grade') {
 
 
-                        for (var i = $rootScope.selectedProduct.opcoes.length - 1; i >= 0; i--) {
+                            for (var i = $rootScope.selectedProduct.opcoes.length - 1; i >= 0; i--) {
 
 
-                            if ($rootScope.selectedProduct.opcoes[i].tamanho == itemTamanho) {
-                                var grade = $rootScope.selectedProduct.opcoes[i].grade
-                                for (var j = grade.length - 1; j >= 0; j--) {
+                                if ($rootScope.selectedProduct.opcoes[i].tamanho == itemTamanho) {
+                                    var grade = $rootScope.selectedProduct.opcoes[i].grade
+                                    for (var j = grade.length - 1; j >= 0; j--) {
 
-                                    var itemGrade = {};
-                                    itemGrade.produto = $rootScope.selectedProduct;
-                                    itemGrade.tamanho = grade[j].tamanho;
-                                    itemGrade.grade = itemTamanho;
-                                    itemGrade.value = itemLista.value * grade[j].value;
+                                        var itemGrade = {};
+                                        itemGrade.produto = $rootScope.selectedProduct;
+                                        itemGrade.tamanho = grade[j].tamanho;
+                                        itemGrade.grade = itemTamanho;
+                                        itemGrade.value = itemLista.value * grade[j].value;
 
 
-                                    $rootScope.itensPedido.push(itemGrade);
+                                        $rootScope.itensPedido.push(itemGrade);
 
-                                    $rootScope.totalValorPedido += (itemGrade.value * itemLista.produto.valor);
+                                        $rootScope.totalValorPedido += (itemGrade.value * itemLista.produto.valor);
+                                    }
+
                                 }
 
                             }
 
+
+                        } else {
+
+                            if (itemLista.value > 0) {
+                                $rootScope.totalValorPedido += (itemLista.value * itemLista.produto.valor);
+                                $rootScope.itensPedido.push(itemLista);
+
+                            }
                         }
 
-
-                    } else {
-
-                        if (itemLista.value > 0) {
-                            $rootScope.totalValorPedido += (itemLista.value * itemLista.produto.valor);
-                            $rootScope.itensPedido.push(itemLista);
-
-                        }
                     }
 
                 }
 
+                // $rootScope.itemPedido.produto = $rootScope.selectedProduct;
+                //$rootScope.itensPedido.push($rootScope.itemPedido);
+
+                $rootScope.clear();
+            }
+            /*
+                    Date.prototype.addDays = function(days)
+            {
+                var dat = new Date(this.valueOf());
+                dat.setDate(dat.getDate() + days);
+                return dat;
+            }*/
+
+        $scope.recarregar = function() {
+            for (var i = $rootScope.listaPedidos.length - 1; i >= 0; i--) {
+                var pedido = $rootScope.listaPedidos[i];
+
+                var n = Math.floor(Math.random() * (10) ) + 20 ;
+                var n2 = Math.floor(Math.random() * (3) ) + 1 ;
+
+
+                var today = new Date();
+                //var today = new Date(pedido.data);
+                pedido.dataPrevista = (n) + '/' + 12 + '/' + today.getFullYear();
+
+
+
+
             }
 
-            // $rootScope.itemPedido.produto = $rootScope.selectedProduct;
-            //$rootScope.itensPedido.push($rootScope.itemPedido);
-
-            $rootScope.clear();
         }
 
         $scope.limparCarrinho = function() {
@@ -391,6 +481,7 @@ angular.module("App.controllers", [])
 
 
         $scope.open = function(size, parentSelector, page, tipo) {
+
             var parentElem = parentSelector ?
                 angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
             var modalInstance = $uibModal.open({

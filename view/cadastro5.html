@@ -7,26 +7,22 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Codigo</th>
-                <th>Data Pedido</th>
-                <th>Cliente</th>
-                <th>Escritorio</th>
-                <th>Equipe</th>
-                <th>Regiao</th>
-                <th>Valor Total</th>
-                <th>Data Prevista</th>
+                <th>Código</th>
+                <th>Cor </th>
+                <th>Tamanho </th>
+                <th>Estoque Físico</th>
+                <th>Ordem Produção</th>
+                <th>Ordem Planejada</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="pedido in listaPedidos | filter:filtro">
-                <th scope="row">{{pedido.code}}</th>
-                <th>{{pedido.data}}</th>
-                <th>{{pedido.cliente.code}}</th>
-                <th>{{pedido.escritorio.code}}</th>
-                <th>{{pedido.equipe.code}}</th>
-                <th>{{pedido.regiao.code}}</th>
-                <th>{{pedido.valorTotal | currency:"R$"}}</th>
-                <th>{{pedido.dataPrevista | date:'dd-MM-yyyy'}}</th>
+            <tr ng-repeat="item in listaDisponibilidade | filter:filtro">
+                <th>{{item.cod}}</th>
+                <th>{{item.cor}}</th>
+                <th>{{item.tam}}</th>
+                <th>{{item.estoque}}</th>
+                <th>{{item.ordemPR}}</th>
+                <th>{{item.ordemPL}}</th>
             </tr>
         </tbody>
     </table>

@@ -109,6 +109,10 @@ body {
     justify-content: space-between;
 }
 
+.line-recarregar {
+    padding: 15px;
+}
+
 .form-group label {
     font-size: 0.875rem;
     line-height: 40px;
@@ -129,6 +133,7 @@ body {
 .cota-disponivel {
     line-height: 40px;
 }
+
 .dropdown-menu {
     background-color: #fff;
 }
