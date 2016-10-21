@@ -8,36 +8,37 @@
 			 -->
             <div class="col-md-2">
                 <div class="form-group">
-                    <label>Escritório de venda:</label>
-                    <select class="dropdown-alpa" ng-model="selectedGNV" ng-options="item.code for item in listaGNV"></select>
+                    <label class="multiline">Escritório de venda:</label>
+                    <select class="dropdown-alpa" ng-model="pedido.escritorio" ng-options="item.code for item in listaGNV"></select>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label>Equipe de venda:</label>
-                    <select class="dropdown-alpa" ng-disabled="selectedGNV==''" ng-model="selectedGRV" ng-options="item.code for item in listaGRV"></select>
+                    <label class="multiline">Equipe de venda:</label>
+                    <select class="dropdown-alpa" ng-disabled="!pedido.escritorio" ng-model="pedido.equipe" ng-options="item.code for item in listaGRV "></select>
+                </div>
+            </div>
+
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="multiline">Região de venda:</label>
+                    <select class="dropdown-alpa" ng-disabled="!pedido.equipe" ng-model="pedido.regiao" ng-options="item.code for item in listaZONA | filter: {anterior: pedido.equipe.code}"></select>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label>Região de venda:</label>
-                    <select class="dropdown-alpa" ng-disabled="selectedGRV==''" ng-model="selectedZONA" ng-options="item.code for item in listaZONA"></select>
+                    <label class="multiline">Cliente:</label>
+                    <select class="dropdown-alpa" ng-disabled="!pedido.regiao" ng-model="pedido.cliente" ng-options="item.code for item in listaCLIENTE | filter: {anterior: pedido.regiao.code}"></select>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="form-group">
-                    <label>Cliente:</label>
-                    <select class="dropdown-alpa" ng-disabled="selectedZONA==''" ng-model="selectedCLIENTE" ng-options="item.code for item in listaCLIENTE"></select>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label>Data Pedido: </label>
-                    <input class="span-info" type="text" ng-model="dataPedido">
+                    <label class="multiline">Data Pedido: </label>
+                    <input class="span-info line30" type="text" ng-model="dataPedido">
                 </div>
             </div>
         </div>
-        <div class="row" uib-collapse="!selectedCLIENTE">
+        <div class="row" uib-collapse="!pedido.cliente">
             <!--  <div class="row"> -->
             <div class="col-md-2">
                 <img ng-if="selectedProduct" class="img-responsive img-produto" src="view/images/{{selectedProduct.foto}}">
@@ -65,8 +66,8 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label>Valor R$:</label>
-                            <input class="span-info" type="text" ng-model="selectedProduct.valor">
+                            <label>Valor</label>
+                            <input class="span-info" type="text" ng-model="selectedProduct.valor | currency:'R$'">
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -74,10 +75,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row" uib-collapse="!selectedCLIENTE">
+                <div class="row" uib-collapse="!pedido.cliente">
                     <!--                 <div class="row"> -->
                     <div class="col-md-2">
-                        Cota disponível:
+                        <span class="cota-disponivel"> Cota disponível: </span>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
@@ -114,23 +115,31 @@
             </div>
         </div>
     </form>
-    <div class="table-products" ng-show="selectedCLIENTE">
+    <div class="table-products" ng-show="pedido.cliente">
         <!-- <div class="table-products"> -->
         <div class="product-header">
             <span>Cor</span>
-            <span ng-repeat="tamanho in tamanhos">Tam: {{tamanho}}</span>
+            <span ng-if="!tamanho.grade" ng-repeat="tamanho in tamanhos">Tam: {{tamanho.tamanho}}</span>
+            <span ng-if="tamanho.grade" ng-repeat="tamanho in tamanhos">Grade: {{tamanho.tamanho}}</span>
         </div>
         <!--  <div class="product" ng-repeat="opcao in selectedProduct.opcoes"> -->
         <div class="product" ng-repeat="cor in cores">
             <span>
-	            	<span style="background-color: #{{cor}}" class="show-color">{{cor}}</span>
+	            	<span style="background-color: #{{cor.cor}}" class="show-color">{{cor.cor}}</span>
+	            	<span  ng-show="selectedProduct.tipoEstoque == 'cor'" class="limite">{{cor.estoque }}</span>
             </span>
             <span ng-repeat="tamanho in tamanhos">
-	            	<input class="input-sizes" type="number" min="0"  maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor][tamanho].value">
+	            	<input class="input-sizes" type="number" max="{{tamanho.estoque}}"   maxlength="6" ng-change="onChange()" ng-model="itemPedido[cor.cor][tamanho.tamanho].value">
+	            	<span  ng-show="selectedProduct.tipoEstoque == 'tamanho'" class="limite">{{tamanho.estoque }}</span>
+	            	<span class="limite" ng-show="tamanho.grade">
+						<span class="item-grade" ng-repeat="item in tamanho.grade"> {{item.tamanho}}({{item.value}})&nbsp;&nbsp;</span>
+
+	            	</span>
 	            </span>
         </div>
-        <div class="product-footer" ng-class="{'cota-estourada':estourouCota == true || estourouEstoque == true}">
+        <div class="product-footer" ng-class="{'cota-estourada':estourouCota == true || estourouEstoque == true }">
             <span>Total: {{totalTamanhos}} <span ng-if="estourouEstoque"> - Estoque Estourado!</span> <span ng-if="estourouCota"> - Cota Estourada!</span></span>
+
             <span ng-repeat="tamanho in tamanhos"></span>
         </div>
     </div>
@@ -163,7 +172,7 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>R$ {{totalValorPedido}}</td>
+                    <td>{{totalValorPedido | currency:"R$" }}</td>
                 </tr>
             </tfoot>
             <tbody>
@@ -174,9 +183,9 @@
                     <td>{{pedido.grade}}</td>
                     <td>{{pedido.tamanho}}</td>
                     <td>{{pedido.value}}</td>
-                    <td>{{pedido.produto.data}}</td>
-                    <td>R$ {{pedido.produto.valor}}</td>
-                    <td class="bold">R$ {{pedido.produto.valor * pedido.value}}</td>
+                    <td>{{pedido.produto.data  | date:'dd-MM-yyyy' }}</td>
+                    <td>{{pedido.produto.valor | currency:"R$" }}</td>
+                    <td class="bold">{{pedido.produto.valor * pedido.value | currency:"R$"}}</td>
                 </tr>
             </tbody>
         </table>
@@ -202,7 +211,12 @@
         </span> -->
     </div>
     <div class="actions" ng-show="itensPedido.length">
+        <button type="button" class="btn btn-danger pull-left" ng-click="limparCarrinho()"><i class="fa fa-trash" aria-hidden="true"></i> Limpar Carrinho</button>
         <button type="button" class="btn btn-info" ng-click="fecharCotacao()"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Cotação</button>
         <button type="button" class="btn btn-success" ng-click="fecharPedido()"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pedido</button>
     </div>
+
+
+	{{listaCotacoes}}	
+
 </panel>

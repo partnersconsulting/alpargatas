@@ -18,6 +18,10 @@ angular.module('App', ["App.controllers", "App.services", "App.directives", "App
                 templateUrl: 'view/pedidos.html',
                 controller: 'PedidosController'
             })
+            .when('/cotacoes', {
+                templateUrl: 'view/cotacoes.html',
+                controller: 'CotacoesController'
+            })
             .when('/pedido1', {
                 templateUrl: 'view/pedido1.html',
                 controller: 'PedidosController'
@@ -26,8 +30,23 @@ angular.module('App', ["App.controllers", "App.services", "App.directives", "App
                 templateUrl: 'view/cadastro1.html',
                 controller: 'CadastrosController'
             })
+            .when('/cadastro2', {
+                templateUrl: 'view/cadastro2.html',
+                controller: 'CadastrosController'
+            })
+            .when('/cadastro3', {
+                templateUrl: 'view/cadastro3.html',
+                controller: 'CadastrosController'
+            })
+            .when('/cadastro4', {
+                templateUrl: 'view/cadastro4.html',
+                controller: 'CadastrosController'
+            })
+            .when('/cadastro5', {
+                templateUrl: 'view/cadastro5.html',
+                controller: 'CadastrosController'
+            })
+
             .otherwise({ redirectTo: 'home' });
 
-       
-        
     });

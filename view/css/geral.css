@@ -115,6 +115,20 @@ body {
     opacity: .8;
 }
 
+.form-group label.multiline {
+    line-height: 15px;
+    padding-bottom: 10px;
+}
+
+.table-products .product span.item-grade + span.item-grade,
+.table-products .product span.item-grade {
+    border: none;
+    border-left: none;
+}
+
+.cota-disponivel {
+    line-height: 40px;
+}
 .dropdown-menu {
     background-color: #fff;
 }
@@ -163,6 +177,10 @@ body {
     text-align: center;
 }
 
+.line30 {
+    height: 30px;
+}
+
 .span-info.selected-info {
     padding: 0 5px;
     background-color: #3bb53b;
@@ -192,6 +210,10 @@ tfoot {
 
 .table-products .product-footer.cota-estourada {
     background-color: red;
+}
+
+.limite {
+    display: block;
 }
 
 
@@ -356,6 +378,11 @@ tfoot {
 
 .table-products .product span input {
     height: 30px;
+}
+
+.table-products .product span input.ng-invalid-max {
+    background-color: red;
+    color: #fff;
 }
 
 .table-products .product-footer {
