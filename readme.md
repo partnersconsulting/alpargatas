@@ -7,4 +7,3 @@
 
 
 test2
-git log HEAD..origin/master --oneline
